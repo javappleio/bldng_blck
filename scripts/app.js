@@ -1,169 +1,141 @@
-import * as THREE from './three.module.js'; 
-import { OrbitControls } from './OrbitControls.js';
+(function() {
+	'use strict';
+	/* 	'To actually be able to display anything with Three.js, we need three things:
+		A scene, a camera, and a renderer so we can render the scene with the camera.' 
+	   		
+	   		- https://threejs.org/docs/#Manual/Introduction/Creating_a_scene 		*/
 
-// Canvas
-const canvas = document.querySelector("canvas.webgl");
+	var scene, camera, renderer;
 
-// Scene
-const scene = new THREE.Scene();
+	/* We need this stuff too */
+	var container, aspectRatio,
+		HEIGHT, WIDTH, fieldOfView,
+		nearPlane, farPlane,
+		mouseX, mouseY, windowHalfX,
+		windowHalfY, stats, geometry,
+		starStuff, materialOptions, stars;
 
-/**
- * Galaxy
- */
-const params = {
-  count: 300000,
-  size: 0.01,
-  radius: 12,
-  branches: 12,
-  spin: 1,
-  randomness: 1,
-  randomnessPower: 1,
-  insideColor: "#ff6030",
-  outsideColor: "#1b3984"
-};
+	init();
+	animate();
 
-let geometry = null;
-let material = null;
-let points = null;
+	function init() {
+    const canvas = document.querySelector("canvas.webgl");
 
-const generateGalaxy = () => {
-  if (points) {
-    scene.remove(points);
-    material.dispose();
-    geometry.dispose();
-  }
+		HEIGHT = window.innerHeight;
+		WIDTH = window.innerWidth;
+		aspectRatio = WIDTH / HEIGHT;
+		fieldOfView = 75;
+		nearPlane = 1;
+		farPlane = 1000;
+		mouseX = 0;
+		mouseY = 0;
 
-  // Galaxy
+		windowHalfX = WIDTH / 2;
+		windowHalfY = HEIGHT / 2;
 
-  geometry = new THREE.BufferGeometry();
-  const positions = new Float32Array(params.count * 3);
-  const colors = new Float32Array(params.count * 3);
+	/* 	fieldOfView — Camera frustum vertical field of view.
+			aspectRatio — Camera frustum aspect ratio.
+			nearPlane — Camera frustum near plane.
+			farPlane — Camera frustum far plane.	
 
-  const colorInside = new THREE.Color(params.insideColor);
-  const colorOutside = new THREE.Color(params.outsideColor);
+			- https://threejs.org/docs/#Reference/Cameras/PerspectiveCamera
 
-  for (let i = 0; i < params.count; i++) {
-    const i3 = i * 3;
+		 	In geometry, a frustum (plural: frusta or frustums) 
+		 	is the portion of a solid (normally a cone or pyramid) 
+		 	that lies between two parallel planes cutting it. - wikipedia.		*/
 
-    const r = Math.random() * params.radius;
+		camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
 
-    const mixedColor = colorInside.clone();
-    mixedColor.lerp(colorOutside, r / params.radius);
-    colors[i3] = mixedColor.r;
-    colors[i3 + 1] = mixedColor.g;
-    colors[i3 + 2] = mixedColor.b;
+		//Z positioning of camera
 
-    const branchIndex = i % params.branches;
-    const branchAngle = branchIndex / params.branches;
-    const rotation = branchAngle * Math.PI * 2;
-    const spinAngle = r * params.spin;
+		camera.position.z = farPlane / 2;
+		
+		scene = new THREE.Scene({antialias:true});
+		scene.fog = new THREE.FogExp2( 0x000000, 0.0003 );
 
-    const randomX =
-      Math.pow(Math.random(), params.randomnessPower) *
-      (Math.random() - 0.5) *
-      params.randomness *
-      r;
-    const randomY =
-      Math.pow(Math.random(), params.randomnessPower) *
-      (Math.random() - 0.5) *
-      params.randomness *
-      r;
-    const randomZ =
-      Math.pow(Math.random(), params.randomnessPower) *
-      (Math.random() - 0.5) *
-      params.randomness *
-      r;
+		// The wizard's about to get busy.
+		starForge();
+		
+    renderer = new THREE.WebGLRenderer({alpha: true, canvas: canvas});
 
-    positions[i3] = Math.cos(rotation + spinAngle) * r + randomX;
-    positions[i3 + 1] = randomY;
-    positions[i3 + 2] = Math.sin(rotation + spinAngle) * r + randomZ;
-  }
+		renderer.setClearColor(0xFAF7F1, 1);
+		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setSize( WIDTH, HEIGHT);
 
-  // Branches
+		// stats = new Stats();
+		// stats.domElement.style.position = 'absolute';
+		// stats.domElement.style.top = '0px';
+		// stats.domElement.style.right = '0px';
+		// container.appendChild( stats.domElement );
 
-  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+		window.addEventListener( 'resize', onWindowResize, false );
+		document.addEventListener( 'mousemove', onMouseMove, false );
+		
+	}
 
-  material = new THREE.PointsMaterial({
-    color: "#6359ee",
-    size: params.size,
-    sizeAttenuation: true,
-    depthWrite: false,
-    blending: THREE.AdditiveBlending,
-    vertexColors: true
-  });
-  points = new THREE.Points(geometry, material);
-  scene.add(points);
-};
-generateGalaxy();
+	function animate() {
+		requestAnimationFrame(animate);
+		render();
+		// stats.update();
+	}
 
-/**
- * Sizes
- */
-const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight
-};
 
-window.addEventListener("resize", () => {
-  // Update sizes
-  sizes.width = window.innerWidth;
-  sizes.height = window.innerHeight;
+	function render() {
+		camera.position.x += ( mouseX - camera.position.x ) * 0.005;
+		camera.position.y += ( - mouseY - camera.position.y ) * 0.005;
+		camera.lookAt( scene.position );
+		renderer.render(scene, camera);
+	}
 
-  // Update camera
-  camera.aspect = sizes.width / sizes.height;
-  camera.updateProjectionMatrix();
+	function onWindowResize() {
 
-  // Update renderer
-  renderer.setSize(sizes.width, sizes.height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-});
+		// Everything should resize nicely if it needs to!
+	  	var WIDTH = window.innerWidth,
+	  		HEIGHT = window.innerHeight;
 
-/**
- * Camera
- */
-// Base camera
-const camera = new THREE.PerspectiveCamera(
-  75,
-  sizes.width / sizes.height,
-  0.1,
-  100
-);
-camera.position.x = 3;
-camera.position.y = 3;
-camera.position.z = 3;
-scene.add(camera);
+	  	camera.aspect = aspectRatio;
+	  	camera.updateProjectionMatrix();
+	  	renderer.setSize(WIDTH, HEIGHT);
+	}
 
-// Controls
-const controls = new OrbitControls(camera, canvas);
-controls.enableDamping = true;
-controls.autoRotate = true;
+	function starForge() {
+		/* 	Yep, it's a Star Wars: Knights of the Old Republic reference,
+			are you really surprised at this point? 
+													*/
+		var starQty = 45000;
+			geometry = new THREE.SphereGeometry(1000, 200, 50);
 
-/**
- * Renderer
- */
-const renderer = new THREE.WebGLRenderer({
-  canvas: canvas, alpha: true
-});
-renderer.setSize(sizes.width, sizes.height);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+	    	materialOptions = {
+	    		size: 1.0, //I know this is the default, it's for you.  Play with it if you want.
+	    		transparency: true, 
+	    		opacity: 0.8,
+          color: 0x000011
+	    	};
 
-/**
- * Animate
- */
-const clock = new THREE.Clock();
+	    	starStuff = new THREE.PointCloudMaterial(materialOptions);
 
-const tick = () => {
-  const elapsedTime = clock.getElapsedTime();
+		// The wizard gaze became stern, his jaw set, he creates the cosmos with a wave of his arms
 
-  // Update controls
-  controls.update();
+		for (var i = 0; i < starQty; i++) {		
 
-  // Render
-  renderer.render(scene, camera);
+			var starVertex = new THREE.Vector3();
+			starVertex.x = Math.random() * 2000 - 1000;
+			starVertex.y = Math.random() * 2000 - 1000;
+			starVertex.z = Math.random() * 2000 - 1000;
 
-  // Call tick again on the next frame
-  window.requestAnimationFrame(tick);
-};
+			geometry.vertices.push(starVertex);
 
-tick();
+		}
+
+
+		stars = new THREE.PointCloud(geometry, starStuff);
+		scene.add(stars);
+	}
+
+	function onMouseMove(e) {
+
+		mouseX = e.clientX - windowHalfX;
+		mouseY = e.clientY - windowHalfY;
+	}	
+
+})();
