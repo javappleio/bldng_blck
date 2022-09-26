@@ -13,6 +13,39 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body>
+    <div id="menu_res">
+        <div id="close" class="close">X</div>
+        <a href="#">HOME</a>
+        <a href="#gamified_history">GAMIFIED HISTORY</a>
+        <a href="#technology">TECHNOLOGY</a>
+        <a href="#community_owned">COMMUNITY-OWNED</a>
+        <button class="btn btn-white-bldng">
+            Contact Us
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 5.00002C0 4.86741 0.0526784 4.74024 0.146447 4.64647C0.240215 4.5527 0.367392 4.50002 0.5 4.50002H12.293L9.146 1.35402C9.05211 1.26013 8.99937 1.1328 8.99937 1.00002C8.99937 0.867245 9.05211 0.739908 9.146 0.646021C9.23989 0.552134 9.36722 0.49939 9.5 0.49939C9.63278 0.49939 9.76011 0.552134 9.854 0.646021L13.854 4.64602C13.9006 4.69247 13.9375 4.74764 13.9627 4.80839C13.9879 4.86913 14.0009 4.93425 14.0009 5.00002C14.0009 5.06579 13.9879 5.13091 13.9627 5.19165C13.9375 5.2524 13.9006 5.30758 13.854 5.35402L9.854 9.35402C9.76011 9.44791 9.63278 9.50065 9.5 9.50065C9.36722 9.50065 9.23989 9.44791 9.146 9.35402C9.05211 9.26013 8.99937 9.1328 8.99937 9.00002C8.99937 8.86725 9.05211 8.73991 9.146 8.64602L12.293 5.50002H0.5C0.367392 5.50002 0.240215 5.44734 0.146447 5.35357C0.0526784 5.25981 0 5.13263 0 5.00002Z" fill="#FAF7F1"/>
+            </svg>
+        </button>
+    </div>
+    <header>
+        <img src="./assets/logo.svg" class="logo">
+        <div class="menu">
+            <a href="#">HOME</a>
+            <a href="#gamified_history">GAMIFIED HISTORY</a>
+            <a href="#technology">TECHNOLOGY</a>
+            <a href="#community_owned">COMMUNITY-OWNED</a>
+            <button class="btn btn-dark-bldng">
+                Contact Us
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 5.00002C0 4.86741 0.0526784 4.74024 0.146447 4.64647C0.240215 4.5527 0.367392 4.50002 0.5 4.50002H12.293L9.146 1.35402C9.05211 1.26013 8.99937 1.1328 8.99937 1.00002C8.99937 0.867245 9.05211 0.739908 9.146 0.646021C9.23989 0.552134 9.36722 0.49939 9.5 0.49939C9.63278 0.49939 9.76011 0.552134 9.854 0.646021L13.854 4.64602C13.9006 4.69247 13.9375 4.74764 13.9627 4.80839C13.9879 4.86913 14.0009 4.93425 14.0009 5.00002C14.0009 5.06579 13.9879 5.13091 13.9627 5.19165C13.9375 5.2524 13.9006 5.30758 13.854 5.35402L9.854 9.35402C9.76011 9.44791 9.63278 9.50065 9.5 9.50065C9.36722 9.50065 9.23989 9.44791 9.146 9.35402C9.05211 9.26013 8.99937 9.1328 8.99937 9.00002C8.99937 8.86725 9.05211 8.73991 9.146 8.64602L12.293 5.50002H0.5C0.367392 5.50002 0.240215 5.44734 0.146447 5.35357C0.0526784 5.25981 0 5.13263 0 5.00002Z" fill="#FAF7F1"/>
+                </svg>
+            </button>
+        </div>
+        <svg id="burger" class="burger" width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="22" height="3" rx="1.5" fill="#1D1C3A"/>
+            <rect y="7" width="22" height="3" rx="1.5" fill="#1D1C3A"/>
+            <rect y="14" width="22" height="3" rx="1.5" fill="#1D1C3A"/>
+        </svg>
+    </header>
     <section id="hero">
         <div class="overlay"></div>
         <canvas class="webgl" id="canvas"></canvas>
@@ -113,7 +146,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-3">
-                    <img src="./assets/logo_white.svg" alt="">
+                    <img src="./assets/logo_white.svg" class="logo">
                 </div>
                 <div class="col-12 col-md-1"></div>
                 <div class="col-12 col-md-4 info">
@@ -152,10 +185,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js"></script>
     <script src='https://code.jquery.com/jquery-3.6.0.min.js' integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=' crossorigin='anonymous'></script>
     <script src="./scripts/map.min.js"></script>
-    <script type="module" src="./scripts/app.js?ver=<?php echo date("ymd-Gi", filemtime("./scripts/app.js")) ?>"></script>
+    <script type="module" src="./scripts/app.js"></script>
     <script>
         $(document).ready(function(e) {
             $('img[usemap]').rwdImageMaps();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#menu_res').css('height', window.innerHeight)
+            $('#burger').click(function(){
+                $('#menu_res').toggleClass('active_menu');
+            });
+            $('#close').click(function(){
+                $('#menu_res').toggleClass('active_menu');
+            });
+            $('#menu_res a').click(function(){
+                $('#menu_res').toggleClass('active_menu');
+            });
+        });
+        $(window).resize(function(){
+            $('#menu_res').css('height', window.innerHeight)
         });
     </script>
 </body>

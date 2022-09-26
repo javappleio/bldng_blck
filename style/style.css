@@ -1,3 +1,51 @@
+@-webkit-keyframes float {
+  0% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+    -webkit-transform: translateY(15px);
+    -moz-transform: translateY(15px);
+    -ms-transform: translateY(15px);
+    -o-transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+    -webkit-transform: translateY(15px);
+    -moz-transform: translateY(15px);
+    -ms-transform: translateY(15px);
+    -o-transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -76,6 +124,121 @@ h4 svg {
 
 body {
   background-color: #FAF7F1 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  h4 svg {
+    display: none;
+  }
+}
+
+.active_menu {
+  right: 0 !important;
+}
+
+#menu_res {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 101vw;
+  background: #1D1C3A;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 9999999;
+  gap: 20px;
+  text-align: center;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+#menu_res a {
+  font-weight: bold;
+  color: #FAF7F1;
+  text-decoration: none;
+}
+
+#menu_res .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #FAF7F1;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+header {
+  z-index: 999999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 30px 5vw;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FAF7F1), to(rgba(250, 247, 241, 0)));
+  background: linear-gradient(180deg, #FAF7F1 0%, rgba(250, 247, 241, 0) 100%);
+}
+
+header .logo {
+  width: 200px;
+}
+
+header .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 40px;
+}
+
+header .menu a {
+  font-weight: bold;
+  color: #1D1C3A;
+  text-decoration: none;
+}
+
+header .burger {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  #menu_res {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  header {
+    padding: 20px 4vw;
+    background: #FAF7F1;
+  }
+  header .menu {
+    display: none;
+  }
+  header .burger {
+    display: block;
+  }
 }
 
 #hero {
@@ -189,12 +352,67 @@ body {
   z-index: 1;
 }
 
+@media only screen and (max-width: 768px) {
+  #hero .text {
+    left: 5vw;
+    text-align: center;
+    bottom: 15vh;
+  }
+  #hero .text p {
+    font-size: 14px;
+  }
+  #hero .scroll_div {
+    text-decoration: none;
+    z-index: 10;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 2vh;
+    height: 120px;
+    width: 120px;
+    border: none;
+  }
+  #hero .scroll_div span {
+    font-size: 10px;
+    font-weight: 800;
+    color: #1D1C3A;
+  }
+  #hero .scroll_div svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
 #gamified_history {
   padding: 100px 0 0;
 }
 
+#gamified_history .text-center {
+  overflow-y: hidden;
+}
+
 #gamified_history .rock {
+  padding: 20px 0;
   width: 50%;
+  animation: float 3s infinite ease-in-out;
+  -webkit-animation: float 3s infinite ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  #gamified_history .rock {
+    margin-top: 50px;
+  }
+  #gamified_history .row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  #gamified_history .col-md-6 {
+    text-align: center;
+  }
 }
 
 #technology {
@@ -226,6 +444,15 @@ body {
   margin: 0;
 }
 
+@media only screen and (max-width: 768px) {
+  #technology .col-lg-5 {
+    text-align: center;
+  }
+  #technology .map p {
+    font-size: 14px;
+  }
+}
+
 #community_owned {
   padding: 200px 0 200px;
   position: relative;
@@ -248,16 +475,20 @@ body {
 }
 
 #community_owned .element_1 {
+  animation: float 5s infinite ease-in-out;
   position: absolute;
   width: 200px;
   right: 10vw;
   top: 10vh;
+  -webkit-animation: float 5s infinite ease-in-out;
 }
 
 #community_owned .element_2 {
   position: absolute;
   width: 200px;
   left: 10vw;
+  animation: float 3s infinite ease-in-out;
+  -webkit-animation: float 3s infinite ease-in-out;
 }
 
 #community_owned .element_3 {
@@ -265,6 +496,28 @@ body {
   width: 200px;
   right: 25vw;
   bottom: 3vh;
+  animation: float 4s infinite ease-in-out;
+  -webkit-animation: float 4s infinite ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  #community_owned .element_1 {
+    position: absolute;
+    width: 100px;
+    right: 6vw;
+    top: 1vh;
+  }
+  #community_owned .element_2 {
+    position: absolute;
+    width: 100px;
+    left: 15vw;
+    top: 10vh;
+  }
+  #community_owned .element_3 {
+    width: 150px;
+    bottom: 6vh;
+    right: 30vw;
+  }
 }
 
 footer {
@@ -317,5 +570,21 @@ footer .right p {
   color: #FAF7F1;
   font-size: 18px;
   margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  footer .logo {
+    width: 70%;
+    margin-bottom: 30px;
+  }
+  footer .col-12 {
+    text-align: center;
+  }
+  footer .right {
+    margin-top: 50px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 /*# sourceMappingURL=style.css.map */
