@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bldng Blcks</title>
-    <link rel="stylesheet" href="./style/style.css?ver=<?php echo date("ymd-Gi", filemtime("./style/style.css")) ?>">
+    <link rel="stylesheet" href="./style/style.css?ver=<?php echo date("ymd-Gis", filemtime("./style/style.css")) ?>">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
