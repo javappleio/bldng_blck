@@ -430,7 +430,7 @@ header .burger {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  cursor: url("../assets/cursor_normal.svg") 16 16, pointer;
+  cursor: url("../assets/cursor_normal.svg") 6 6, pointer;
 }
 
 #technology .map .triangle {
