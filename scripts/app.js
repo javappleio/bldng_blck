@@ -73,26 +73,27 @@
 		
 	}
 
-	function myFunction(x) {
-		if (x.matches) { // If media query matches
-			function animate() {
+	function animate() {
+		function myFunction(x) {
+			if (x.matches) { // If media query matches
 				camera.position.x += 0.005;
 				requestAnimationFrame(animate);
 				render();
-				// stats.update();
+			} else {
+					requestAnimationFrame(animate);
+					render();
+					// stats.update();
 			}
-		} else {
-			function animate() {
-				requestAnimationFrame(animate);
-				render();
-				// stats.update();
-			}
-		}
-	  }
+		  }
+		  var x = window.matchMedia("(max-width: 700px)")
+		  myFunction(x) // Call listener function at run time
+		  x.addListener(myFunction) // Attach listener function on state changes
+		
+		// stats.update();
+	}
+
+	
 	  
-	  var x = window.matchMedia("(max-width: 700px)")
-	  myFunction(x) // Call listener function at run time
-	  x.addListener(myFunction) // Attach listener function on state changes
 
 	
 
