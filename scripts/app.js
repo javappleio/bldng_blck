@@ -76,7 +76,7 @@
 	function animate() {
 		function myFunction(x) {
 			if (x.matches) { // If media query matches
-				camera.position.x += 0.05;
+				camera.position.x += 0.5;
 				requestAnimationFrame(animate);
 				render();
 			} else {
