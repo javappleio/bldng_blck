@@ -53,7 +53,7 @@
         <div class="text">
             <h1>BLOCKCHAIN<br>GAMING<br>STUDIOS</h1>
             <br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis hendrerit integer varius eleifend turpis nunc ultrices mauris. Tincidunt facilisis eget euismod fringilla potenti viverra aliquam, lobortis quam. Integer varius et interdum scelerisque pharetra sollicitudin. Vestibulum dolor eget enim faucibus diam hac.</p>
+            <p>Bridging history with web3 games</p>
         </div>
         <a href="#gamified_history" class="scroll_div">
             <span>SCROLL DOWN</span>
@@ -78,7 +78,7 @@
                         CREATING GAMIFIED HISTORY
                     </h4>
                     <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis hendrerit integer varius eleifend turpis nunc ultrices mauris. Tincidunt facilisis eget euismod fringilla potenti viverra aliquam, lobortis quam. Integer varius et interdum scelerisque pharetra sollicitudin.</p>
+                    <p>History is now taught outside classrooms, in the best way possible: playing. Gaming is the proper way to learn, understand and enjoy our past. Learning has changed, its just got better.</p>
                     <br>
                     <button class="btn btn-dark-bldng">
                         Contact Us
@@ -103,32 +103,34 @@
                         BRIDGING PAST AND FUTURE
                     </h4>
                     <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis hendrerit integer varius eleifend turpis nunc ultrices mauris.</p>
+                    <p>Careful attention to detail is required when learning history. The perfect balance is achieved when using top-notch technology to achieve realistic historic scenarios.</p>
                 </div>
                 <div class="col-12 col-lg-1"></div>
                 <div class="col-12 col-lg-6 map">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis hendrerit integer varius eleifend turpis nunc ultrices mauris. Tincidunt facilisis eget euismod fringilla potenti viverra.</p>
-                    <img src="./assets/map.svg" alt="Workplace" usemap="#workmap">
+                    <p class="text_map" id="text_c_o">Blockchain technology has created the possibility of owning digital assets. When purchasing game assets, players are now owners of their collectibles and games in a secure digital manner.</p>
+                    <p class="text_map" id="text_f_t">Using Unreal Engine as design base, all our games create the closest experience to historic realism. Everything we build appeals to the players’ senses.</p>
+                    <p class="text_map" id="text_p_h">We asume the educational responsibility of creating the perfect balance between historic veracity and engaging gameplay. History is being told, the funnest way possible.</p>
+                    <img src="./assets/map_new.svg" alt="Workplace" usemap="#workmap" id="map_image">
 
                     <map name="workmap">
-                        <area shape="rect" alt="community" coords="480,0,1000,180" alt="community" href="#community">
-                        <area shape="rect" alt="future" coords="0,990,430,1172" alt="future" href="#future">
-                        <area shape="rect" alt="past" coords="1100,990,1400,1172" alt="past" href="#past">
+                        <area id="comm_shape" shape="rect" alt="community" coords="546,42,1016,192" alt="community" href="#community">
+                        <area id="future_shape" shape="rect" alt="future" coords="14,1030,484,1180" alt="future" href="#future">
+                        <area id="past_shape" shape="rect" alt="past" coords="1157,1030,1471,1180" alt="past" href="#past">
                     </map>
                 </div>
             </div>
         </div>
     </section>
     <section id="community_owned">
-        <img src="./assets/element_2.svg" class="element_1">
-        <img src="./assets/element_1.svg" class="element_2">
-        <img src="./assets/element_3.svg" class="element_3">
+        <img src="./assets/element_1_1.png" class="element_1">
+        <img src="./assets/element_2_1.png" class="element_2">
+        <img src="./assets/element_3_1.png" class="element_3">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
                     <h2>FOR GAMERS<br>BY GAMERS</h2>
                     <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum tellus nunc hac eu tellus at. Quisque sed quam pretium in. Orci, id quam lectus velit nunc erat eu ut ac. Massa quis dolor elit quam commodo id auctor interdum. Vestibulum gravida volutpat quam aliquam ultrices id mus nunc aliquam. Fringilla risus placerat adipiscing ut sed amet turpis dignissim. Senectus quisque arcu sit nam. Tincidunt enim interdum in sit eget.</p>
+                    <p>We are all in this together. Games have a huge opportunity to portray historic beauty and bring players together. It is an honor to develop the experiences our players will enjoy for days, weeks and months to come.</p>
                 </div>
             </div>
         </div>
@@ -207,6 +209,34 @@
         });
         $(window).resize(function(){
             $('#menu_res').css('height', window.innerHeight)
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#comm_shape").mouseover(function(){
+                $("#map_image").attr("src","./assets/map_co.svg");
+                $("#text_c_o").css("display", "block");
+            });
+            $("#comm_shape").mouseout(function(){
+                $("#map_image").attr("src","./assets/map_new.svg");
+                $("#text_c_o").css("display", "none");
+            });
+            $("#future_shape").mouseover(function(){
+                $("#map_image").attr("src","./assets/map_ft.svg");
+                $("#text_f_t").css("display", "block");
+            });
+            $("#future_shape").mouseout(function(){
+                $("#map_image").attr("src","./assets/map_new.svg");
+                $("#text_f_t").css("display", "none");
+            });
+            $("#past_shape").mouseover(function(){
+                $("#map_image").attr("src","./assets/map_ph.svg");
+                $("#text_p_h").css("display", "block");
+            });
+            $("#past_shape").mouseout(function(){
+                $("#map_image").attr("src","./assets/map_new.svg");
+                $("#text_p_h").css("display", "none");
+            });
         });
     </script>
 </body>
