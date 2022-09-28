@@ -386,6 +386,11 @@ header {
         justify-content: center;
         align-items: center;
         cursor: url("../assets/cursor_normal.svg") 25 25, pointer;
+        transition: 0.3s;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
         
         .triangle {
             opacity: 0.2;
@@ -407,7 +412,12 @@ header {
     }
 
     #comm_shape, #past_shape, #future_shape {
-        cursor: url("../assets/cursor_normal.svg") 40 40, pointer;
+        cursor: url("../assets/cursor_hover.svg") 40 40, pointer;
+        transition: 0.3s;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
     }
 
     @media only screen and (max-width: 768px) {
