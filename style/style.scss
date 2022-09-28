@@ -385,7 +385,7 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        cursor: url("../assets/cursor.svg");
+        cursor: url("../assets/cursor.svg") 16 16, pointer;
         
         .triangle {
             opacity: 0.2;
