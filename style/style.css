@@ -502,13 +502,13 @@ header .burger {
     position: absolute;
     width: 100px;
     right: 6vw;
-    top: 1vh;
+    top: 3vh;
   }
   #community_owned .element_2 {
     position: absolute;
     width: 100px;
-    left: 15vw;
-    top: 10vh;
+    left: 5vw;
+    top: 12vh;
   }
 }
 
