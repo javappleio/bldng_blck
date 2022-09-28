@@ -107,7 +107,6 @@
                 </div>
                 <div class="col-12 col-lg-1"></div>
                 <div class="col-12 col-lg-6 map">
-                    <p class="hint" id="hint">Click One</p>
                     <p class="text_map" id="text_c_o">Blockchain technology has created the possibility of owning digital assets. When purchasing game assets, players are now owners of their collectibles and games in a secure digital manner.</p>
                     <p class="text_map" id="text_f_t">Using Unreal Engine as design base, all our games create the closest experience to historic realism. Everything we build appeals to the players’ senses.</p>
                     <p class="text_map" id="text_p_h">We asume the educational responsibility of creating the perfect balance between historic veracity and engaging gameplay. History is being told, the funnest way possible.</p>
@@ -118,6 +117,8 @@
                         <area id="future_shape" shape="rect" alt="future" coords="14,1030,484,1180" alt="future" href="#future">
                         <area id="past_shape" shape="rect" alt="past" coords="1157,1030,1471,1180" alt="past" href="#past">
                     </map>
+                    
+                    <p class="hint" id="hint">Hover to see more info</p>
                 </div>
             </div>
         </div>
@@ -221,32 +222,26 @@
             $("#comm_shape").mouseover(function(){
                 $("#map_image").attr("src","./assets/map_co.svg");
                 $("#text_c_o").css("display", "block");
-                $("#hint").css("display", "none");
             });
             $("#comm_shape").mouseout(function(){
                 $("#map_image").attr("src","./assets/map_new.svg");
                 $("#text_c_o").css("display", "none");
-                $("#hint").css("display", "block");
             });
             $("#future_shape").mouseover(function(){
                 $("#map_image").attr("src","./assets/map_ft.svg");
                 $("#text_f_t").css("display", "block");
-                $("#hint").css("display", "none");
             });
             $("#future_shape").mouseout(function(){
                 $("#map_image").attr("src","./assets/map_new.svg");
                 $("#text_f_t").css("display", "none");
-                $("#hint").css("display", "block");
             });
             $("#past_shape").mouseover(function(){
                 $("#map_image").attr("src","./assets/map_ph.svg");
                 $("#text_p_h").css("display", "block");
-                $("#hint").css("display", "none");
             });
             $("#past_shape").mouseout(function(){
                 $("#map_image").attr("src","./assets/map_new.svg");
                 $("#text_p_h").css("display", "none");
-                $("#hint").css("display", "block");
             });
         });
     </script>

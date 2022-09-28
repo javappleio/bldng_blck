@@ -383,6 +383,7 @@ header {
     .map {
         position: relative;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         cursor: url("../assets/cursor_hover_new.svg") 12 12, pointer;
