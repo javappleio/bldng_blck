@@ -355,8 +355,8 @@ header .burger {
 @media only screen and (max-width: 768px) {
   #hero .text {
     left: 5vw;
-    text-align: center;
-    bottom: 15vh;
+    text-align: left;
+    bottom: 38vh;
   }
   #hero .text p {
     font-size: 14px;
