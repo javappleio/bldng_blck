@@ -125,7 +125,6 @@
     <section id="community_owned">
         <img src="./assets/element_1_1.png" class="element_1">
         <img src="./assets/element_2_1.png" class="element_2">
-        <img src="./assets/element_3_1.png" class="element_3">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -135,6 +134,11 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section id="half_float">
+        <div class="light"></div>
+        <div class="dark"></div>
+        <img src="./assets/element_3_1.png" class="element_3">
     </section>
     <footer>
         <div class="text-center">

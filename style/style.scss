@@ -419,7 +419,7 @@ header {
 }
 
 #community_owned {
-    padding: 200px 0 200px;
+    padding: 200px 0 0;
     position: relative;
     overflow-y: hidden;
     z-index: 9;
@@ -455,15 +455,6 @@ header {
         -webkit-animation: float 3s infinite ease-in-out;
 }
 
-    .element_3 {
-        position: absolute;
-        width: 200px;
-        right: 25vw;
-        bottom: 3vh;
-        animation: float 4s infinite ease-in-out;
-        -webkit-animation: float 4s infinite ease-in-out;
-}
-
     @media only screen and (max-width: 768px) {
         .element_1 {
             position: absolute;
@@ -478,19 +469,48 @@ header {
             left: 15vw;
             top: 10vh;
         }
-    
-
-        .element_3 {
-            width: 150px;
-            bottom: 6vh;
-            right: 30vw;
-        }
     }
     
 }
 
+#half_float {
+    position: relative;
+
+    .light {
+        background: $light;
+        height: 200px;
+        width: 100%;
+    }
+
+    .dark {
+        background: $dark;
+        height: 200px;
+        width: 100%;
+    }
+
+    .element_3 {
+        position: absolute;
+        width: 250px;
+        right: 25vw;
+        top: 20%;
+        z-index: 9;
+        animation: float 4s infinite ease-in-out;
+        -webkit-animation: float 4s infinite ease-in-out;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .light, .dark {
+            height: 100px;
+        }
+        .element_3 {
+            width: 150px;
+            top: 10%;
+        }
+    }
+}
+
 footer {
-    padding: 100px 0 80px;
+    padding: 0px 0 80px;
     background-color: $dark;
 
     .text-center {

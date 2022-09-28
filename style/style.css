@@ -460,7 +460,7 @@ header .burger {
 }
 
 #community_owned {
-  padding: 200px 0 200px;
+  padding: 200px 0 0;
   position: relative;
   overflow-y: hidden;
   z-index: 9;
@@ -497,15 +497,6 @@ header .burger {
   -webkit-animation: float 3s infinite ease-in-out;
 }
 
-#community_owned .element_3 {
-  position: absolute;
-  width: 200px;
-  right: 25vw;
-  bottom: 3vh;
-  animation: float 4s infinite ease-in-out;
-  -webkit-animation: float 4s infinite ease-in-out;
-}
-
 @media only screen and (max-width: 768px) {
   #community_owned .element_1 {
     position: absolute;
@@ -519,15 +510,46 @@ header .burger {
     left: 15vw;
     top: 10vh;
   }
-  #community_owned .element_3 {
+}
+
+#half_float {
+  position: relative;
+}
+
+#half_float .light {
+  background: #FAF7F1;
+  height: 200px;
+  width: 100%;
+}
+
+#half_float .dark {
+  background: #1D1C3A;
+  height: 200px;
+  width: 100%;
+}
+
+#half_float .element_3 {
+  position: absolute;
+  width: 250px;
+  right: 25vw;
+  top: 20%;
+  z-index: 9;
+  animation: float 4s infinite ease-in-out;
+  -webkit-animation: float 4s infinite ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  #half_float .light, #half_float .dark {
+    height: 100px;
+  }
+  #half_float .element_3 {
     width: 150px;
-    bottom: 6vh;
-    right: 30vw;
+    top: 10%;
   }
 }
 
 footer {
-  padding: 100px 0 80px;
+  padding: 0px 0 80px;
   background-color: #1D1C3A;
 }
 
