@@ -385,6 +385,7 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: url("../assets/cursor.svg");
         
         .triangle {
             opacity: 0.2;
@@ -403,6 +404,10 @@ header {
             padding: 0 6vw;
             margin: 0;
         }
+    }
+
+    #comm_shape {
+        cursor: url('');
     }
 
     @media only screen and (max-width: 768px) {

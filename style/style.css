@@ -430,6 +430,7 @@ header .burger {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: url("../assets/cursor.svg");
 }
 
 #technology .map .triangle {
@@ -448,6 +449,10 @@ header .burger {
   text-align: center;
   padding: 0 6vw;
   margin: 0;
+}
+
+#technology #comm_shape {
+  cursor: url("");
 }
 
 @media only screen and (max-width: 768px) {
