@@ -451,8 +451,8 @@ header .burger {
   margin: 0;
 }
 
-#technology #comm_shape {
-  cursor: url("");
+#technology #comm_shape, #technology #past_shape, #technology #future_shape {
+  cursor: url("../assets/cursor_normal.svg") 6 6, pointer;
 }
 
 @media only screen and (max-width: 768px) {

@@ -406,8 +406,8 @@ header {
         }
     }
 
-    #comm_shape {
-        cursor: url('');
+    #comm_shape, #past_shape, #future_shape {
+        cursor: url("../assets/cursor_normal.svg") 6 6, pointer;
     }
 
     @media only screen and (max-width: 768px) {
