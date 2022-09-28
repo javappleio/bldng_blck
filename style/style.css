@@ -449,7 +449,10 @@ header .burger {
 
 #technology .map .hint {
   display: block;
-  font-weight: bold;
+  font-weight: 300;
+  position: relative;
+  text-align: center;
+  padding-top: 20px;
 }
 
 #technology .map p {
