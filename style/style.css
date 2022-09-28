@@ -437,6 +437,11 @@ header .burger {
   z-index: 1;
 }
 
+#technology .map .hint {
+  display: block;
+  font-weight: bold;
+}
+
 #technology .map p {
   display: none;
   position: absolute;
