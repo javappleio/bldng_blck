@@ -118,7 +118,7 @@
                         <area id="past_shape" shape="rect" alt="past" coords="1157,1030,1471,1180" alt="past" href="#past">
                     </map>
                     
-                    <p class="hint" id="hint">Hover to see more info</p>
+                    <p class="hint" id="hint">Click on the triangle edges to learn more</p>
                 </div>
             </div>
         </div>
