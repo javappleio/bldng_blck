@@ -187,10 +187,7 @@ header {
 }
 
 @media only screen and (max-width: 768px) {
-    #hero {
-        display: flex;
-        align-items: center;
-    }
+    
     #menu_res {
         display: flex;
     }
@@ -314,7 +311,7 @@ header {
         .text {
             left: 5vw;
             text-align: left;
-            bottom: auto;
+            bottom: 38vh;
         
             p {
                 font-size: 14px;

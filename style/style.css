@@ -224,14 +224,6 @@ header .burger {
 }
 
 @media only screen and (max-width: 768px) {
-  #hero {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
   #menu_res {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -364,7 +356,7 @@ header .burger {
   #hero .text {
     left: 5vw;
     text-align: left;
-    bottom: auto;
+    bottom: 38vh;
   }
   #hero .text p {
     font-size: 14px;
